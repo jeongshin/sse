@@ -6,10 +6,19 @@ monorepo for handling server sent events for react & react native apps
 
 - **sse**
   - **example**
+    - **web**
+      - Vite React app for testing `@wrtn/sse-web`
+      - [README](example/web/README.md)
+    - **app**
+      - React Native app for testing `@wrtn/sse-native`
     - **server**
+      - Express server for mocking stream
       - [README.md](example/server/README.md)
   - **packages**
-    - **native**
+    - **sse-native**
+      - Native `EventSource` implements
       - [README.md](packages/sse-native/README.md)
-    - **types**
-    - **web**
+    - **sse-types**
+      - Shared types
+    - **sse-web**
+      - Web `EventSource` implements
