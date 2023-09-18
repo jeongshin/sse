@@ -1,16 +1,30 @@
 {
-  "name": "react-event-source",
+  "private": true,
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "clean": "lerna run clean",
+    "build": "lerna run prepack",
+    "publish": "lerna publish"
+  },
   "license": "MIT",
   "packageManager": "yarn@3.6.3",
+  "engines": {
+    "yarn": "3.2.3",
+    "node": ">=18"
+  },
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "example"
     ]
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^17.7.0",
+    "@lerna-lite/cli": "^2.5.1",
+    "@lerna-lite/run": "^2.5.1",
+    "commitlint": "^17.7.1",
     "eslint": "^8.49.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"

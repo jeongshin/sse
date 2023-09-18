@@ -1,0 +1,45 @@
+{
+  "name": "@jeongshin/sse-web",
+  "description": "",
+  "version": "0.0.1",
+  "scripts": {
+    "prepack": "bob build && tsc --project tsconfig.build.json",
+    "clean": "del lib"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "main": "lib/commonjs/index.js",
+  "module": "lib/src/index.js",
+  "source": "src/index.ts",
+  "types": "lib/src/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeongshin/react-event-source.git",
+    "directory": "packages/web"
+  },
+  "devDependencies": {
+    "del-cli": "^5.0.0",
+    "react-native-builder-bob": "^0.22.0",
+    "typescript": "^5.2.2"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs"
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
+}
