@@ -1,6 +1,6 @@
 class WebEventSource {
   constructor() {
-    console.log("WebEventSource");
+    console.log('WebEventSource');
   }
 }
 

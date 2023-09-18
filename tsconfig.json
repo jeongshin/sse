@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@jeongshin/*": ["./packages/*/src"]
+      "@wrtn-test/*": ["./packages/*/src"]
     },
     "composite": true,
     "allowUnreachableCode": false,

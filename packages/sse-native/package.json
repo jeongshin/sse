@@ -1,5 +1,5 @@
 {
-  "name": "@jeongshin/sse-native",
+  "name": "@wrtn-test/sse-native",
   "version": "0.0.1",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -55,6 +55,11 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeongshin/sse.git",
+    "directory": "packages/native"
   },
   "react-native-builder-bob": {
     "source": "src",

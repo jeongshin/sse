@@ -1,5 +1,6 @@
 {
   "$schema": "node_modules/@lerna-lite/cli/schemas/lerna-schema.json",
-  "version": "0.0.0",
+  "version": "independent",
+  "useWorkspaces": true,
   "packages": ["packages/*"]
 }
