@@ -20,6 +20,13 @@
       "example"
     ]
   },
+  "prettier": {
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.7.0",
     "@lerna-lite/cli": "^2.5.1",
