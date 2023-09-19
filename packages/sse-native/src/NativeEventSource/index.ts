@@ -1,17 +1,15 @@
-import type { EmitterSubscription, NativeModule } from 'react-native';
+import type { NativeModule } from 'react-native';
 
 import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
 
 import type {
-  EventCallback,
-  EventSourceEvent,
   EventSourceEventType,
-  EventSourceHttpOptions,
-  EventSourceStreamOptions,
+  EventSourceHttpConfig,
 } from '@wrtn-test/sse-types';
+import { IEventSource } from '@wrtn-test/sse-types';
 
 interface NativeEventSourceModule extends NativeModule {
-  connect(url: string, options: EventSourceHttpOptions): void;
+  connect(url: string, config: EventSourceHttpConfig): void;
   disconnect(): void;
 }
 
@@ -22,7 +20,7 @@ const nativeEvents: EventSourceEventType[] = [
   'close',
 ];
 
-class EventSource {
+class EventSource extends IEventSource {
   private nativeEventSource =
     requireNativeModule<NativeEventSourceModule>('EventSource');
 
@@ -33,36 +31,8 @@ class EventSource {
     })
   );
 
-  private debug: boolean;
-
-  private listeners: Record<EventSourceEventType, EventCallback[]> = {
-    open: [],
-    message: [],
-    close: [],
-    error: [],
-    timeout: [],
-  };
-
-  constructor(
-    url: string,
-    {
-      headers = {},
-      body = {},
-      method = 'GET',
-      timeout = 30 * 1000,
-      debug = false,
-    }: EventSourceHttpOptions = {},
-    {}: EventSourceStreamOptions = {}
-  ) {
-    this.debug = debug;
-
-    this.nativeEventSource.connect(url, {
-      headers,
-      body,
-      method,
-      timeout,
-      debug,
-    });
+  constructor(url: string, options?: EventSourceHttpConfig) {
+    super(url, options);
 
     nativeEvents.forEach((nativeEvent) => {
       this.eventEmitter.addListener(nativeEvent, (event) => {
@@ -71,36 +41,37 @@ class EventSource {
         });
       });
     });
-
-    this.log(`connected to ${url}`);
   }
 
-  private log(...args: any) {
-    if (this.debug) {
-      console.log(`[react-native-event-source]`, ...args);
-    }
+  public async open(): Promise<void> {
+    this.nativeEventSource.connect(this.url, this.config);
   }
 
-  public addEventListener<E extends EventSourceEventType>(
-    event: E,
-    listener: (e: Extract<EventSourceEvent, { type: E }>) => void
-  ): EmitterSubscription {
-    return this.eventEmitter.addListener(event, listener);
-  }
-
-  public removeEventListeners<E extends EventSourceEventType>(event: E): void {
-    this.eventEmitter.removeAllListeners(event);
-  }
-
-  public removeAllEventListeners(): void {
+  public removeEventListeners(): void {
     nativeEvents.forEach((nativeEvent) => {
       this.eventEmitter.removeAllListeners(nativeEvent);
     });
+
+    this.listeners = {
+      open: [],
+      close: [],
+      error: [],
+      message: [],
+      timeout: [],
+    };
   }
 
   public close(): void {
-    this.removeAllEventListeners();
+    // this.removeAllEventListeners();
     this.nativeEventSource.disconnect();
+  }
+
+  public abort(): void {
+    //
+  }
+
+  public retry(): void {
+    //
   }
 }
 

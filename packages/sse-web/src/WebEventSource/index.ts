@@ -1,9 +1,4 @@
-import {
-  IEventSource,
-  EventSourceEvent,
-  EventSourceEventType,
-  EventCallback,
-} from '@wrtn-test/sse-types';
+import { IEventSource } from '@wrtn-test/sse-types';
 import { fetchEventSource as MSEventSource } from '@microsoft/fetch-event-source';
 
 class WebEventSource extends IEventSource {
@@ -77,7 +72,6 @@ class WebEventSource extends IEventSource {
 
   public close(): void {
     this.removeEventListeners();
-
     this.controller.abort();
   }
 
@@ -95,17 +89,6 @@ class WebEventSource extends IEventSource {
     }
 
     this.open();
-  }
-
-  public addEventListener<T extends EventSourceEventType>(
-    event: T,
-    listener: (e: Extract<EventSourceEvent, { type: T }>) => void
-  ): void {
-    if (!Array.isArray(this.listeners[event])) {
-      throw new TypeError(`${event} is not valid event type`);
-    }
-
-    this.listeners[event].push(listener as EventCallback);
   }
 
   public removeEventListeners(): void {

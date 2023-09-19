@@ -30,10 +30,16 @@ export abstract class IEventSource {
     };
   }
 
-  public abstract addEventListener<T extends EventSourceEventType>(
+  public addEventListener<T extends EventSourceEventType>(
     event: T,
     listener: (e: Extract<EventSourceEvent, { type: T }>) => void
-  ): void;
+  ): void {
+    if (!Array.isArray(this.listeners[event])) {
+      throw new TypeError(`${event} is not valid event type`);
+    }
+
+    this.listeners[event].push(listener as EventCallback);
+  }
 
   public abstract removeEventListeners(): void;
 
