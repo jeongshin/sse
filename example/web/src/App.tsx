@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import WebEventSource from '@wrtn-test/sse-web';
+import { MessageEvent } from '@wrtn-test/sse-types';
 import './App.css';
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   const es = useRef<WebEventSource | null>(null);
 
   useEffect(() => {
-    es.current = new WebEventSource('http://localhost:3000/stream/error', {
+    es.current = new WebEventSource('http://localhost:3000/stream', {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -20,7 +21,7 @@ function App() {
 
     es.current.addEventListener('open', console.log);
     es.current.addEventListener('close', console.log);
-    es.current.addEventListener('message', (e) => {
+    es.current.addEventListener('message', (e: MessageEvent) => {
       console.log(e);
       const data = JSON.parse(e.data);
       if ('chunk' in data) {
