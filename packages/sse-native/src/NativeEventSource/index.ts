@@ -8,7 +8,7 @@ import type {
   EventSourceEventType,
   EventSourceHttpOptions,
   EventSourceStreamOptions,
-} from '../types';
+} from '@wrtn-test/sse-types';
 
 interface NativeEventSourceModule extends NativeModule {
   connect(url: string, options: EventSourceHttpOptions): void;
@@ -40,7 +40,6 @@ class EventSource {
     message: [],
     close: [],
     error: [],
-    suspend: [],
     timeout: [],
   };
 

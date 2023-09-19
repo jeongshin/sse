@@ -1,6 +1,5 @@
 {
   "extends": "../../tsconfig",
-  "references": [{ "path": "../sse-types" }],
   "compilerOptions": {
     "outDir": "./lib"
   }

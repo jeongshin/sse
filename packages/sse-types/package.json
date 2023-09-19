@@ -1,5 +1,5 @@
 {
-  "name": "@wrtn-test/sse-web",
+  "name": "@wrtn-test/sse-types",
   "description": "",
   "version": "0.0.1",
   "scripts": {
@@ -24,7 +24,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jeongshin/sse.git",
-    "directory": "packages/sse-web"
+    "directory": "packages/sse-types"
   },
   "devDependencies": {
     "del-cli": "^5.0.0",

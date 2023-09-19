@@ -3,9 +3,7 @@ export type EventSourceEventType =
   | 'close'
   | 'error'
   | 'message'
-  | 'timeout'
-  // FIXME: rename suspend to idle
-  | 'suspend';
+  | 'timeout';
 
 export type EventCallback = (data: EventSourceEvent) => void;
 

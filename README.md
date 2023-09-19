@@ -1,10 +1,10 @@
-# sse
+# @wrtn/sse
 
 monorepo for handling server sent events for react & react native apps
 
 ## Packages
 
-- **sse**
+- **wrtn**
   - **example**
     - **web**
       - Vite React app for testing `@wrtn/sse-web`
@@ -20,5 +20,7 @@ monorepo for handling server sent events for react & react native apps
       - [README.md](packages/sse-native/README.md)
     - **sse-types**
       - Shared types
+      - [README.md](packages/sse-types/README.md)
     - **sse-web**
       - Web `EventSource` implements
+      - [README.md](packages/sse-web/README.md)

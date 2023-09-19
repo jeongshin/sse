@@ -1,4 +1,4 @@
-# @wrtn-test/sse-native
+# @wrtn/sse-native
 
 Server sent events handling for react native apps using native libraries
 

@@ -24,6 +24,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/sse-native"\
       },\
       {\
+        "name": "@wrtn-test/sse-types",\
+        "reference": "workspace:packages/sse-types"\
+      },\
+      {\
         "name": "@wrtn-test/sse-web",\
         "reference": "workspace:packages/sse-web"\
       }\
@@ -32,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["@wrtn-test/sse-native", ["workspace:packages/sse-native"]],\
+      ["@wrtn-test/sse-types", ["workspace:packages/sse-types"]],\
       ["@wrtn-test/sse-web", ["workspace:packages/sse-web"]],\
       ["root-workspace-0b6124", ["workspace:."]],\
       ["web", ["workspace:example/web"]]\
@@ -4800,6 +4805,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-native", "virtual:3fb0694c190cbe1180c3463ae33c5a7965b1f4000e78c43e4d0e7f76e1670a0e173a3d1c392460672aeb37d3687d82a60f90c3c74cf7b1a545d87348a1b2cfd9#npm:0.72.4"],\
             ["react-native-builder-bob", "npm:0.21.3"],\
             ["turbo", "npm:1.10.14"],\
+            ["typescript", "patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@wrtn-test/sse-types", [\
+        ["workspace:packages/sse-types", {\
+          "packageLocation": "./packages/sse-types/",\
+          "packageDependencies": [\
+            ["@wrtn-test/sse-types", "workspace:packages/sse-types"],\
+            ["del-cli", "npm:5.1.0"],\
+            ["react-native-builder-bob", "npm:0.22.0"],\
             ["typescript", "patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
           ],\
           "linkType": "SOFT"\

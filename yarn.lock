@@ -3144,6 +3144,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@wrtn-test/sse-types@workspace:packages/sse-types":
+  version: 0.0.0-use.local
+  resolution: "@wrtn-test/sse-types@workspace:packages/sse-types"
+  dependencies:
+    del-cli: ^5.0.0
+    react-native-builder-bob: ^0.22.0
+    typescript: ^5.2.2
+  peerDependencies:
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
 "@wrtn-test/sse-web@workspace:packages/sse-web":
   version: 0.0.0-use.local
   resolution: "@wrtn-test/sse-web@workspace:packages/sse-web"
