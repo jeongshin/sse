@@ -1,11 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import WebEventSource from '@wrtn-test/sse-web';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [result, setResult] = useState('');
+
+  const [aborted, setAborted] = useState(false);
+
+  const es = useRef<WebEventSource | null>(null);
+
+  useEffect(() => {
+    es.current = new WebEventSource('http://localhost:3000/stream/error', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    es.current.addEventListener('open', console.log);
+    es.current.addEventListener('close', console.log);
+    es.current.addEventListener('message', (e) => {
+      console.log(e);
+      const data = JSON.parse(e.data);
+      if ('chunk' in data) {
+        setResult((prev) => prev + ` ${data.chunk}`);
+      }
+    });
+    es.current.addEventListener('error', console.log);
+
+    es.current.open();
+
+    return () => {
+      es.current?.close();
+    };
+  }, []);
 
   return (
     <>
@@ -18,8 +47,20 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <button
+        onClick={() => {
+          setAborted((prev) => !prev);
+          if (!aborted) {
+            es.current?.abort();
+          } else {
+            es.current?.retry();
+          }
+        }}
+      >
+        {aborted ? 'start' : 'stop'}
+      </button>
       <div className="card">
-        <p>{count}</p>
+        <p>{result}</p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more

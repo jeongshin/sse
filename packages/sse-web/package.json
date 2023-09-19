@@ -7,6 +7,7 @@
     "clean": "del lib"
   },
   "peerDependencies": {
+    "@microsoft/fetch-event-source": ">=2.0.1",
     "react": "*"
   },
   "files": [
@@ -27,6 +28,7 @@
     "directory": "packages/sse-web"
   },
   "devDependencies": {
+    "@microsoft/fetch-event-source": "^2.0.1",
     "del-cli": "^5.0.0",
     "react-native-builder-bob": "^0.22.0",
     "typescript": "^5.2.2"

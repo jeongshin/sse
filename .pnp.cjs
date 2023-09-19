@@ -3856,6 +3856,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@microsoft/fetch-event-source", [\
+        ["npm:2.0.1", {\
+          "packageLocation": "./.yarn/cache/@microsoft-fetch-event-source-npm-2.0.1-679d34d9ba-a50e1c0f33.zip/node_modules/@microsoft/fetch-event-source/",\
+          "packageDependencies": [\
+            ["@microsoft/fetch-event-source", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@nodelib/fs.scandir", [\
         ["npm:2.1.5", {\
           "packageLocation": "./.yarn/cache/@nodelib-fs.scandir-npm-2.1.5-89c67370dd-a970d595bd.zip/node_modules/@nodelib/fs.scandir/",\
@@ -4827,6 +4836,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/sse-web/",\
           "packageDependencies": [\
             ["@wrtn-test/sse-web", "workspace:packages/sse-web"],\
+            ["@microsoft/fetch-event-source", "npm:2.0.1"],\
             ["del-cli", "npm:5.1.0"],\
             ["react-native-builder-bob", "npm:0.22.0"],\
             ["typescript", "patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
@@ -12543,6 +12553,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./example/web/",\
           "packageDependencies": [\
             ["web", "workspace:example/web"],\
+            ["@microsoft/fetch-event-source", "npm:2.0.1"],\
             ["@types/react", "npm:18.2.21"],\
             ["@types/react-dom", "npm:18.2.7"],\
             ["@typescript-eslint/eslint-plugin", "virtual:9172b9d25ec85a514689446427df6c11380f4f055614bc2e3e1445abdf41492f600edbc1ea4abf478c38ba2697eedb2860f0bc0ed039724002ebda94fa5bdee7#npm:6.7.0"],\

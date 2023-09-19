@@ -1,7 +1,3 @@
-class WebEventSource {
-  constructor() {
-    console.log('WebEventSource');
-  }
-}
+import WebEventSource from './WebEventSource';
 
 export default WebEventSource;

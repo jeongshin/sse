@@ -6,12 +6,6 @@ Android - [okhttp sse](https://github.com/square/okhttp)
 
 iOS - [swift eventsource](https://github.com/launchdarkly/swift-eventsource)
 
-## WIP 🏗️
-
-- [ ] Testing
-- [ ] Android
-- [ ] iOS
-
 ### Android
 
 add below on `android/app/build.gradle`

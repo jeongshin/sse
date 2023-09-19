@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "lerna run clean",
     "build": "lerna run prepack",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "dev": "lerna run dev"
   },
   "license": "MIT",
   "packageManager": "yarn@3.6.3",

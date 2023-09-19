@@ -1,3 +1,51 @@
+export abstract class IEventSource {
+  protected url: string;
+
+  protected lastEventId: string | undefined;
+
+  protected config: EventSourceHttpConfig;
+
+  protected listeners: Record<EventSourceEventType, EventCallback[]> = {
+    open: [],
+    message: [],
+    close: [],
+    error: [],
+    timeout: [],
+  };
+
+  constructor(url: string, options?: EventSourceHttpConfig) {
+    if (typeof url !== 'string' || !url) {
+      throw new TypeError('[EventSource] invalid url');
+    }
+
+    this.url = url;
+
+    this.config = {
+      debug: options?.debug ?? false,
+      method: options?.method ?? 'GET',
+      body:
+        options?.method === 'POST' && options?.body ? options.body : undefined,
+      headers: options?.headers ?? {},
+      timeout: options?.timeout ?? 30 * 1000,
+    };
+  }
+
+  public abstract addEventListener<T extends EventSourceEventType>(
+    event: T,
+    listener: (e: Extract<EventSourceEvent, { type: T }>) => void
+  ): void;
+
+  public abstract removeEventListeners(): void;
+
+  public abstract open(): Promise<void>;
+
+  public abstract close(): void;
+
+  public abstract abort(): void;
+
+  public abstract retry(): void;
+}
+
 export type EventSourceEventType =
   | 'open'
   | 'close'
@@ -20,6 +68,7 @@ export type EventSourceEvent =
 export interface MessageEvent {
   type: 'message';
   data: string;
+  event: string | null | undefined;
   lastEventId: string | null | undefined;
 }
 
@@ -64,7 +113,7 @@ export interface ErrorEvent {
 
 export type HttpMethod = 'GET' | 'POST';
 
-export type EventSourceHttpOptions = {
+export type EventSourceHttpConfig = {
   method?: HttpMethod;
   headers?: Record<string, string>;
   body?: Record<string, string>;

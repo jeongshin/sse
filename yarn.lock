@@ -2390,6 +2390,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@microsoft/fetch-event-source@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@microsoft/fetch-event-source@npm:2.0.1"
+  checksum: a50e1c0f33220206967266d0a4bbba0703e2793b079d9f6e6bfd48f71b2115964a803e14cf6e902c6fab321edc084f26022334f5eaacc2cec87f174715d41852
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -3160,10 +3167,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@wrtn-test/sse-web@workspace:packages/sse-web"
   dependencies:
+    "@microsoft/fetch-event-source": ^2.0.1
     del-cli: ^5.0.0
     react-native-builder-bob: ^0.22.0
     typescript: ^5.2.2
   peerDependencies:
+    "@microsoft/fetch-event-source": ">=2.0.1"
     react: "*"
   languageName: unknown
   linkType: soft
@@ -10035,6 +10044,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:example/web"
   dependencies:
+    "@microsoft/fetch-event-source": ^2.0.1
     "@types/react": ^18.2.15
     "@types/react-dom": ^18.2.7
     "@typescript-eslint/eslint-plugin": ^6.0.0
