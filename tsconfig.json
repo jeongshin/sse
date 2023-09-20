@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@wrtn-test/*": ["./packages/*/src"]
+      "@wrtn/*": ["./packages/*/src"]
     },
     "composite": true,
     "allowUnreachableCode": false,

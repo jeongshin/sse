@@ -1,7 +1,7 @@
-import { IEventSource } from '@wrtn-test/sse-types';
+import { EventSourceBase } from '@wrtn/sse-types';
 import { fetchEventSource as MSEventSource } from '@microsoft/fetch-event-source';
 
-class WebEventSource extends IEventSource {
+class WebEventSource extends EventSourceBase {
   private controller: AbortController = new AbortController();
 
   public async open(): Promise<void> {

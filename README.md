@@ -17,7 +17,7 @@ monorepo for handling server sent events for react & react native apps
   - **packages**
     - **sse-native**
       - Native `EventSource` implements
-      - [README.md](packages/sse-native/README.md)
+      - [README.md](https://github.com/jeongshin/rn-sse)
     - **sse-types**
       - Shared types
       - [README.md](packages/sse-types/README.md)

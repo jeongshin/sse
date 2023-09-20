@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import WebEventSource from '@wrtn-test/sse-web';
-import { MessageEvent } from '@wrtn-test/sse-types';
+import WebEventSource from '@wrtn/sse-web';
+import { MessageEvent } from '@wrtn/sse-types';
 import './App.css';
 
 function App() {

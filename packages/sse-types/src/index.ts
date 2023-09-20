@@ -1,4 +1,4 @@
-export abstract class IEventSource {
+export abstract class EventSourceBase {
   protected url: string;
 
   protected lastEventId: string | undefined;

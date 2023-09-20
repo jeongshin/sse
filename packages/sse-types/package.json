@@ -1,9 +1,9 @@
 {
-  "name": "@wrtn-test/sse-types",
+  "name": "@wrtn/sse-types",
   "description": "",
   "version": "0.0.1",
   "scripts": {
-    "prepack": "bob build && tsc --project tsconfig.build.json",
+    "prepack": "yarn bob build && yarn tsc --project tsconfig.build.json",
     "clean": "del lib"
   },
   "peerDependencies": {
